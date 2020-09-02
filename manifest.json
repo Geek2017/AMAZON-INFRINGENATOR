@@ -1,0 +1,84 @@
+{
+    "name": "Infringinator",
+    "description": "Infringinator allows you to quickly collect and report infringing products on Amazon.",
+    "version": "1.0",
+    "background": {
+        "scripts": ["dist/jquery/jquery-3.1.1.min.js", "js/background.js", "contentscripts/contentscriptCommon.js"],
+        "persistent": false
+    },
+    "content_scripts": [{
+        "matches": [
+            "https://*.amazon.com/*"
+        ],
+        "js": [
+            "dist/jquery/jquery-3.1.1.min.js",
+            "contentscripts/contentscriptCommon.js",
+            "contentscripts/contentscriptAmazon.js"
+        ],
+        "css": [
+            "css/contentPage.css",
+            "css/bootstrap.min.css"
+        ],
+        "run_at": "document_end"
+    }],
+    "permissions": [
+        "tabs",
+        "storage",
+        "downloads"
+    ],
+    "web_accessible_resources": [
+        "images/*.png",
+        "images/*.gif",
+        "images/*.jpg",
+        "/images/*.png",
+        "/images/flags/*.png",
+        "/images/*.gif",
+        "https://use.fontawesome.com/releases/v5.6.3/js/all.js",
+        "fonts/nunito/Nunito-Regular.ttf",
+        "fonts/nunito/Nunito-SemiBold.ttf",
+        "fonts/nunito/Nunito-Bold.ttf",
+        "fonts/nunito/Nunito-ExtraBold.ttf",
+        "fonts/nunito/Nunito-Black.ttf",
+        "/jsugly/*.js",
+        "jsugly/*.js",
+        "/app/*.json",
+        "/appugly/*.json"
+    ],
+    "browser_action": {
+        "default_title": "Infringinator",
+        "default_icon": "images/infringe128.png",
+        "default_popup": "html/popup.html"
+    },
+    "icons": {
+        "128": "images/infringe128.png",
+        "48": "images/infringe48.png",
+        "16": "images/infringe16.png"
+    },
+    "commands": {
+        "populatepage": {
+            "suggested_key": {
+                "default": "Alt+N",
+                "windows": "Alt+N",
+                "mac": "Alt+N"
+            },
+            "description": "Populate Page"
+        },
+        "submitpage": {
+            "suggested_key": {
+                "default": "Alt+M",
+                "windows": "Alt+M",
+                "mac": "Alt+M"
+            },
+            "description": "Submit Page"
+        },
+        "_execute_browser_action": {
+            "suggested_key": {
+                "default": "Alt+I",
+                "windows": "Alt+I",
+                "mac": "Alt+I"
+            },
+            "description": "Open Infringinator"
+        }
+    },
+    "manifest_version": 2
+}

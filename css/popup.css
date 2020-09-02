@@ -1,0 +1,40 @@
+body {
+    width: 660px;
+	max-width: 660px;
+    min-height: 800px;
+    font-size: 12px;
+    font-family: 'Nunito', sans-serif;
+    background: #DCF8F6;
+    color: #697d7d;
+}
+::selection {
+    background: #F27268;
+    color: #FFF;
+}
+/***HEADER***/ 
+.navbar-default {
+	background-color: #94e0d9;
+	border: none !important;
+}
+.navbar-default .navbar-brand {
+    color: #fff;
+    font-size: medium;
+    font-weight: bold;
+}
+.navbar-header {
+    /* background-image: url("/images/kdpbanner.png"); */
+    background-repeat: no-repeat;
+    background-position: right top;
+    height: 60px;
+	border-bottom: 2px solid #94e0d9;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    background-color: #94e0d9;
+    margin-top: 0 !important;
+	background-size: 660px 60px;
+}
+.navbar-brand>span {
+    margin-left: 8px;
+    vertical-align: middle;
+}

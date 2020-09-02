@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='app'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Infringinator</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/popup.css">
+    <link rel="stylesheet" href="../dist/tablesort/tablesort.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,700,900" rel="stylesheet">
+
+    <script type="text/javascript" src="../dist/jquery/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="../dist/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../contentscripts/contentscriptCommon.js"></script>
+</head>
+
+<body ng-controller='InfringinatorController' ng-cloak>
+    <input id='copyfrom' tabindex='-1' aria-hidden='true' style="position: absolute;left: -9999px;">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-brand">
+                    Infringinator
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container" id="mainContent">
+
+        <table class="table table-hover table-bordered table-striped valign-center" ts-wrapper ts-get-table-data-function="getDataFn">
+            <!-- ng-show="selectedProducts.length > 0"> -->
+            <tr class="headerRow">
+                <th>#</th>
+                <th class="txt-center">Thumbnail</th>
+                <th class="txt-center">ASIN</th>
+                <th class="txt-center">Brand</th>
+                <th class="txt-center">Title</th>
+                <th class="txt-center">Price</th>
+                <th class="txt-center">Reviews</th>
+                <th class="txt-center">Remove</th>
+            </tr>
+            <tr ng-repeat="selectedProduct in selectedProducts track by $index" ts-repeat>
+                <td>{{$index+1}}</td>
+                <td> <img height="100px" width="100px" ng-src="{{selectedProduct.thumbnailURL}}"></td>
+                <td class="txt-center assinumber">
+                    {{selectedProduct.asin}}
+                </td>
+                <td> {{selectedProduct.brand}}</td>
+                <td> {{selectedProduct.title}}</td>
+                <td> {{selectedProduct.price}}</td>
+                <td> {{selectedProduct.reviewsRating}}</td>
+                <td> <input id="remove" type="button" value="X"></td>
+            </tr>
+        </table>
+
+        <button id="btnDownloadCSV" ng-click="downloadCSV()">Download CSV</button>
+    </div>
+    <script type="text/javascript" src="../dist/angular/angularv1.7.2.js"></script>
+    <script type="text/javascript" src="../app/app.js"></script>
+    <script type="text/javascript" src="../app/InfringinatorController.js"></script>
+    <script type="text/javascript" src="../dist/tablesort/angular-tablesort.js"></script>
+</body>
+
+</html>
